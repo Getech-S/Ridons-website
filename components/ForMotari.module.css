@@ -1,0 +1,109 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 663px;
+  margin: 10px var(--card-inset) 0;
+  padding: 100px clamp(20px, 6.95vw, 100px);
+  overflow: hidden;
+  border-radius: 16px;
+  isolation: isolate;
+}
+
+.photo {
+  z-index: -2;
+  object-fit: cover;
+}
+
+/* Slow zoom-out on the photo once the card is revealed */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  .photo {
+    scale: 1.14;
+    transition: scale 2.6s var(--ease-out) 150ms;
+  }
+
+  .card[data-revealed] .photo {
+    scale: 1;
+  }
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(
+      ellipse 104.6% 50.7% at 12.08% 71.37%,
+      rgba(15, 23, 42, 0.9) 0%,
+      rgba(15, 23, 42, 0.82) 32%,
+      rgba(15, 23, 42, 0) 58%
+    ),
+    rgba(15, 23, 42, 0.3);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 642px;
+  padding-left: 24px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  line-height: 1.375;
+  letter-spacing: -0.023em;
+  color: var(--white);
+}
+
+.lead {
+  font-size: var(--fs-lead);
+  font-weight: 500;
+  line-height: 28px;
+  color: var(--border);
+}
+
+.badges {
+  padding-top: 9px;
+}
+
+@media (max-width: 900px) {
+  .card {
+    min-height: 600px;
+    padding-top: 64px;
+    padding-bottom: 48px;
+  }
+
+  .photo {
+    object-position: 72% center;
+  }
+
+  .overlay {
+    background:
+      linear-gradient(0deg, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.75) 45%, rgba(15, 23, 42, 0.1) 80%),
+      rgba(15, 23, 42, 0.2);
+  }
+
+  .content {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .card {
+    min-height: 560px;
+  }
+
+  .br {
+    display: none;
+  }
+}

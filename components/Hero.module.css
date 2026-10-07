@@ -1,0 +1,193 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 160px var(--gutter) 0;
+  background: #ffffff;
+  isolation: isolate;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  background-image: linear-gradient(164.97deg, #c91d22 2.24%, #0f172a 196.62%);
+}
+
+/* Slow-moving light across the red */
+.bg::after {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  width: 60%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0) 65%);
+  animation: glow 16s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  to {
+    transform: translate(110%, 45%) scale(1.25);
+  }
+}
+
+.wave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  z-index: -1;
+  aspect-ratio: 1440 / 239.055;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 497px);
+  column-gap: 26px;
+  max-width: var(--content);
+  min-height: 669px;
+  margin: 0 auto;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 762px;
+  padding-top: 100px;
+}
+
+.title {
+  font-family: var(--font-ui);
+  font-size: var(--fs-h1);
+  font-weight: 800;
+  line-height: 1.078;
+  letter-spacing: -0.039em;
+  color: var(--white);
+}
+
+.soft {
+  color: rgba(251, 251, 251, 0.9);
+}
+
+.line {
+  display: block;
+  animation: heroUp 1s var(--ease-out) both;
+}
+
+.line:nth-child(2) {
+  animation-delay: 140ms;
+}
+
+@keyframes heroUp {
+  from {
+    opacity: 0;
+    transform: translateY(60%);
+    filter: blur(8px);
+  }
+}
+
+.lead {
+  max-width: 500px;
+  padding-top: 8px;
+  animation: heroUp 1s 300ms var(--ease-out) both;
+  font-size: var(--fs-lead);
+  font-weight: 500;
+  line-height: 28px;
+  color: var(--white);
+}
+
+.badges {
+  padding-top: 24px;
+}
+
+.phones {
+  margin-top: 9.22px;
+  margin-right: -45px;
+  animation: phonesIn 1.3s 250ms var(--ease-out) both;
+}
+
+@keyframes phonesIn {
+  from {
+    opacity: 0;
+    transform: translateX(90px) rotate(5deg) scale(0.95);
+  }
+}
+
+.stage {
+  position: relative;
+  width: 497px;
+  height: 592px;
+}
+
+.backPhone,
+.frontPhone {
+  position: absolute;
+  transform-origin: top left;
+}
+
+.backPhone {
+  animation: float 6.5s 1.5s ease-in-out infinite;
+  top: 0;
+  left: 188.34px;
+  filter: drop-shadow(0 16px 16px rgba(12, 12, 13, 0.1)) drop-shadow(0 4px 2px rgba(12, 12, 13, 0.05));
+}
+
+.frontPhone {
+  animation: float 7.5s 1.2s ease-in-out infinite reverse;
+  top: 53.97px;
+  left: -0.33px;
+}
+
+/* Uses the separate "translate" property so it stacks with each phone's scale transform */
+@keyframes float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -14px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .phones {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 1100px) {
+  .content {
+    padding-top: 64px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    padding-top: 112px;
+  }
+
+  .inner {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 40px;
+    min-height: 0;
+  }
+
+  .content {
+    padding-top: 0;
+  }
+
+  .phones {
+    width: min(100%, 440px);
+    margin: 0 auto;
+    padding-bottom: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lead {
+    line-height: 26px;
+  }
+}

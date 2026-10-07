@@ -1,0 +1,242 @@
+.section {
+  padding: 80px var(--gutter) 100px;
+  background: var(--white);
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 56px;
+  text-align: center;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  line-height: 1.375;
+  letter-spacing: -0.023em;
+  color: var(--secondary);
+  text-wrap: balance;
+}
+
+.sub {
+  font-size: var(--fs-lead);
+  font-weight: 500;
+  line-height: 28px;
+  color: var(--gray);
+}
+
+.body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  max-width: 830px;
+  margin: 0 auto;
+}
+
+/* Desktop step list */
+.steps {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+.steps::before {
+  content: "";
+  position: absolute;
+  left: 36px;
+  top: 36px;
+  bottom: 36px;
+  width: 2px;
+  background: #e6e8ee;
+}
+
+/* Red progress line that grows down the timeline as steps complete */
+.steps::after {
+  content: "";
+  position: absolute;
+  left: 36px;
+  top: 36px;
+  width: 2px;
+  height: calc((100% - 72px) * var(--progress, 0));
+  background: var(--primary-strong);
+  transition: height 500ms var(--ease-out);
+}
+
+.step {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 15.8px 17.8px 15.8px 13.8px;
+  border: 1px solid transparent;
+  border-radius: 18px;
+  transition: background-color 250ms, border-color 250ms;
+}
+
+.num {
+  position: relative;
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--primary-strong);
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--primary-strong);
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 27.2px;
+  transition: background-color 250ms, color 250ms, box-shadow 250ms;
+}
+
+.stepText {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.stepText h3 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22.88px;
+  letter-spacing: -0.176px;
+}
+
+.stepText p {
+  font-size: 15.5px;
+  line-height: 24.83px;
+  color: var(--gray);
+}
+
+.step:not(.current):hover {
+  background: rgba(208, 32, 42, 0.04);
+}
+
+.current .num {
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 6px rgba(208, 32, 42, 0.14);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(208, 32, 42, 0.06);
+  }
+}
+
+.past .num,
+.current .num {
+  background: var(--primary-strong);
+  color: #ffffff;
+}
+
+.current {
+  border-color: #f6cdd0;
+  background: #fdedee;
+}
+
+.current .num {
+  box-shadow: 0 0 0 6px rgba(208, 32, 42, 0.14);
+}
+
+.current .stepText p {
+  color: #5b6474;
+}
+
+/* Mobile progress (replaces the list on small screens) */
+.mobileSteps {
+  display: none;
+}
+
+.demo {
+  flex: none;
+  width: 330px;
+}
+
+@media (max-width: 860px) {
+  .section {
+    padding-top: 64px;
+    padding-bottom: 72px;
+  }
+
+  .head {
+    padding-bottom: 32px;
+  }
+
+  .body {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .steps {
+    display: none;
+  }
+
+  .mobileSteps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min(100%, 360px);
+    text-align: center;
+  }
+
+  .bars {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    width: 100%;
+    margin-bottom: 14px;
+  }
+
+  .bars span {
+    height: 4px;
+    border-radius: 4px;
+    background: #e6e8ee;
+    transition: background-color 250ms;
+  }
+
+  .bars .barOn {
+    background: var(--primary-strong);
+  }
+
+  .mobileLabel {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--primary-strong);
+  }
+
+  .mobileTitle {
+    margin-top: 4px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 26px;
+  }
+
+  .mobileText {
+    min-height: 2lh;
+    margin-top: 2px;
+    font-size: 15.5px;
+    line-height: 22px;
+    color: var(--gray);
+  }
+
+  .demo {
+    width: min(100%, 330px);
+  }
+}

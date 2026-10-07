@@ -1,0 +1,210 @@
+/* All values are the Figma design px of the 330px-wide phone (node 309:406).
+   The phone is scaled as a whole by <ScaleToFit>. */
+
+.phone {
+  position: relative;
+  width: 330px;
+  height: 583.759px;
+  font-family: var(--font-ui);
+  color: var(--secondary);
+}
+
+.screen {
+  position: absolute;
+  left: 30.94px;
+  top: 8.19px;
+  width: 280.293px;
+  height: 573.326px;
+  overflow: hidden;
+  border-radius: 36.411px;
+  background: var(--white);
+}
+
+.frame {
+  position: absolute;
+  top: 0;
+  left: calc(50% + 0.17px);
+  width: 312.144px;
+  height: 583.336px;
+  transform: translateX(-50%);
+  border-radius: 22.759px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Map */
+.mapWrap {
+  position: absolute;
+  left: calc(50% + 5.69px);
+  width: 346.383px;
+  height: 381.731px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map {
+  position: relative;
+  flex: none;
+  width: 341.223px;
+  height: 377.068px;
+  overflow: hidden;
+  transform: rotate(0.79deg);
+}
+
+.map > div,
+.map > span {
+  position: absolute;
+}
+
+.v0 { inset: 3.91% -0.26% 10.73% -12.94%; }
+.v1 { inset: 67.74% 10.92% 10.73% -1.76%; }
+.v2 { inset: 30.67% 13.58% 48.78% 63.71%; }
+.group { inset: 4.77% -1.07% 7.31% -13.75%; }
+.groupInner { position: absolute; inset: -1.59% -1.35%; }
+.v3 { inset: 54.33% 68.45% 25.12% 8.84%; }
+.v3Inner { position: absolute; inset: -0.83%; }
+.v4 { inset: 41.31% 24.17% 35.39% 20.19%; }
+.v4Inner { position: absolute; inset: -2.94% -1.36%; }
+.v5 { inset: 62.89% 77.91% 33.68% 18.3%; }
+.v5Inner { position: absolute; inset: -15%; }
+.v6 { inset: 39.6% 22.27% 56.97% 73.94%; }
+
+.mapLabel {
+  font-weight: 700;
+  font-size: 9.041px;
+  line-height: normal;
+  color: #9aa3b2;
+  white-space: nowrap;
+}
+
+/* Bottom sheet */
+.sheet {
+  position: absolute;
+  bottom: 60.97px;
+  left: calc(50% - 3.19px);
+  width: 273.922px;
+  transform: translateX(-50%);
+  overflow: hidden;
+  border-radius: 14.864px 14.864px 0 0;
+  background: #ffffff;
+  box-shadow: 0 0 6.193px rgba(0, 0, 0, 0.1);
+}
+
+.sheetInner {
+  width: 273.012px;
+  margin-left: -0.46px;
+  padding: 14.864px 14.864px 24.773px;
+}
+
+/* Tab bar + gesture bar */
+.bottom {
+  position: absolute;
+  bottom: -3.64px;
+  left: calc(50% - 4.1px);
+  width: 272.102px;
+  height: 86.454px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+}
+
+.tabbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9.909px 19.819px;
+  background: #ffffff;
+  filter: drop-shadow(0 0 3.097px rgba(0, 0, 0, 0.1));
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.477px;
+  height: 29.728px;
+  font-size: 9.91px;
+  line-height: 11.148px;
+  letter-spacing: 0.5px;
+}
+
+.tabActive {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.gesture {
+  display: flex;
+  justify-content: center;
+  padding: 6.193px 0;
+  background: #ffffff;
+}
+
+.gesture span {
+  width: 102.189px;
+  height: 4.335px;
+  border-radius: 1.239px;
+  background: var(--secondary);
+}
+
+/* Status bar */
+.status {
+  position: absolute;
+  top: 13.65px;
+  left: 1.83px;
+  width: 272.102px;
+  height: 27.301px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6.37px 10.01px;
+}
+
+.time {
+  width: 33.444px;
+  text-align: center;
+  font-size: 8.671px;
+  font-weight: 600;
+  letter-spacing: -0.1734px;
+}
+
+/* Trip pill at the top */
+.topMenu {
+  position: absolute;
+  top: 27.3px;
+  left: calc(50% - 3.64px);
+  width: 273.012px;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  padding: 14.864px 14.864px 24.773px;
+}
+
+.topPill {
+  display: flex;
+  align-items: center;
+  gap: 21.841px;
+  padding: 7.432px 9.909px;
+  border: 0.619px solid var(--border);
+  border-radius: 4.955px;
+  background: var(--white);
+}
+
+.topRoute {
+  display: flex;
+  align-items: center;
+  gap: 4.955px;
+  width: 175.638px;
+  font-size: 9.909px;
+  font-weight: 500;
+  line-height: 10.9px;
+  white-space: nowrap;
+}
+
+.from {
+  color: var(--primary);
+}
