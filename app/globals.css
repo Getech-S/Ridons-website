@@ -107,10 +107,11 @@ img {
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* Scroll reveals. Hidden only when JS runs and motion is welcome, so content never gets stuck invisible. */
-@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
-  /* :root prefix so these win over component styles */
-  :root [data-reveal] {
+/* Scroll reveals. Elements are hidden only after <ScrollEffects> has started and added
+   html.motion, so if JavaScript fails to load the content simply shows without animation. */
+@media (prefers-reduced-motion: no-preference) {
+  /* html.motion prefix also makes these win over component styles */
+  html.motion [data-reveal] {
     opacity: 0;
     transition:
       opacity 0.8s var(--ease-out),
@@ -122,32 +123,32 @@ img {
     transition-delay: var(--reveal-delay, 0ms);
   }
 
-  :root [data-reveal="up"] { transform: translateY(40px); }
-  :root [data-reveal="left"] { transform: translateX(-60px); }
-  :root [data-reveal="right"] { transform: translateX(60px); }
-  :root [data-reveal="zoom"] { transform: scale(0.9); }
-  :root [data-reveal="blur"] { transform: translateY(18px); filter: blur(14px); }
-  :root [data-reveal="rise"] { transform: translateY(90px) scale(0.94); }
-  :root [data-reveal="pop"] {
+  html.motion [data-reveal="up"] { transform: translateY(40px); }
+  html.motion [data-reveal="left"] { transform: translateX(-60px); }
+  html.motion [data-reveal="right"] { transform: translateX(60px); }
+  html.motion [data-reveal="zoom"] { transform: scale(0.9); }
+  html.motion [data-reveal="blur"] { transform: translateY(18px); filter: blur(14px); }
+  html.motion [data-reveal="rise"] { transform: translateY(90px) scale(0.94); }
+  html.motion [data-reveal="pop"] {
     transform: scale(0.5);
     transition-timing-function: var(--ease-out), var(--ease-spring), ease, ease, ease, ease;
   }
-  :root [data-reveal="tilt"] {
+  html.motion [data-reveal="tilt"] {
     transform: perspective(1200px) rotateX(22deg) translateY(70px);
     transform-origin: 50% 100%;
   }
-  :root [data-reveal="card"] {
+  html.motion [data-reveal="card"] {
     transform: scale(0.95);
     clip-path: inset(8% 6% round 32px);
   }
 
-  :root [data-reveal][data-revealed] {
+  html.motion [data-reveal][data-revealed] {
     opacity: 1;
     transform: none;
     filter: none;
   }
 
-  :root [data-reveal="card"][data-revealed] {
+  html.motion [data-reveal="card"][data-revealed] {
     clip-path: inset(0 round 16px);
   }
 }

@@ -24,6 +24,9 @@ export default function ScrollEffects() {
       { rootMargin: "0px 0px -12% 0px", threshold: 0.08 },
     );
 
+    // Turns on the reveal styles (see globals.css). Until this runs, everything is visible.
+    if (!reduce) document.documentElement.classList.add("motion");
+
     const observe = (root: ParentNode) =>
       root.querySelectorAll("[data-reveal]:not([data-revealed])").forEach((el) => (reduce ? reveal(el) : io.observe(el)));
     observe(document);
@@ -56,6 +59,7 @@ export default function ScrollEffects() {
     }
 
     return () => {
+      document.documentElement.classList.remove("motion");
       io.disconnect();
       mo.disconnect();
       window.removeEventListener("scroll", onScroll);

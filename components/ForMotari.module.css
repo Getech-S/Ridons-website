@@ -17,13 +17,13 @@
 }
 
 /* Slow zoom-out on the photo once the card is revealed */
-@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
-  .photo {
+@media (prefers-reduced-motion: no-preference) {
+  :global(html.motion) .photo {
     scale: 1.14;
     transition: scale 2.6s var(--ease-out) 150ms;
   }
 
-  .card[data-revealed] .photo {
+  :global(html.motion) .card[data-revealed] .photo {
     scale: 1;
   }
 }

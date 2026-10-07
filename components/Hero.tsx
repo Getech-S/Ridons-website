@@ -29,7 +29,7 @@ export default function Hero() {
             Make an offer. A motari accepts. The price is locked, and your moto is on its way.
           </p>
           <div id="get-app" className={styles.badges}>
-            <StoreBadges variant="filled" revealDelay={550} />
+            <StoreBadges variant="filled" revealDelay={550} revealOn="load" />
           </div>
         </div>
 

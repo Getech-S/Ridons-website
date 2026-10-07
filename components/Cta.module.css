@@ -35,9 +35,9 @@
   }
 }
 
-/* Woman photo: anchored to the card bottom, overflowing above the top edge */
+/* Woman photo: anchored to the card's bottom edge (not the row), overflowing above the top edge.
+   .figure only reserves the column; .woman is positioned against .card. */
 .figure {
-  position: relative;
   flex: none;
   align-self: stretch;
   width: 305px;
@@ -45,8 +45,8 @@
 
 .woman {
   position: absolute;
-  bottom: -30px;
-  left: -88.25px;
+  bottom: 0;
+  left: calc(56px - 88.25px);
   width: 380.25px;
   aspect-ratio: 393 / 466;
   overflow: hidden;
@@ -165,6 +165,7 @@
 
   /* Photo sits at the bottom of the card, cut cleanly by the card edge */
   .figure {
+    position: relative;
     order: 3;
     align-self: center;
     width: min(100%, 260px);
@@ -190,36 +191,61 @@
   }
 }
 
-/* Tablets: text left, photo right, both resting on the card's bottom edge */
+/* iPad portrait: like desktop. Photo on the left standing on the card's bottom edge,
+   head rising above the card; text and button on the right. */
 @media (min-width: 641px) and (max-width: 900px) {
+  .section {
+    padding-top: 90px;
+  }
+
   .card {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 240px;
-    grid-template-rows: auto 1fr;
-    column-gap: 24px;
-    padding: 0 0 0 40px;
+    grid-template-columns: 290px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    align-content: center;
+    column-gap: 20px;
+    min-height: 290px;
+    padding: 0 36px 0 8px;
+    overflow: visible;
     text-align: left;
   }
 
-  .text {
+  /* The column is only reserved here; the photo itself is pinned to the card's bottom edge */
+  .figure {
+    position: static;
     grid-column: 1;
+    grid-row: 1 / span 2;
+    width: 290px;
+    aspect-ratio: auto;
+    margin-top: 0;
+  }
+
+  .woman {
+    inset: auto;
+    bottom: 0;
+    left: 8px;
+    width: 290px;
+  }
+
+  .figure::before {
+    display: none;
+  }
+
+  .text {
+    grid-column: 2;
     align-items: flex-start;
     align-self: end;
-    padding-top: 48px;
+    padding-top: 44px;
   }
 
   .action {
-    grid-column: 1;
+    grid-column: 2;
     align-self: start;
-    padding-bottom: 48px;
+    padding: 24px 0 44px;
   }
 
-  .figure {
-    grid-column: 2;
-    grid-row: 1 / span 2;
-    align-self: end;
-    width: 240px;
-    margin-top: 32px;
+  .title {
+    font-size: clamp(28px, 3.9vw, 34px);
   }
 
   .title br {

@@ -11,14 +11,14 @@ export default function Cta() {
           <Image src="/images/cta-shape.png" alt="" fill sizes="500px" />
         </div>
 
-        <div
-          className={styles.figure}
-          aria-hidden="true"
-          data-reveal="rise"
-          style={{ "--reveal-delay": "250ms" } as CSSProperties}
-        >
+        <div className={styles.figure} aria-hidden="true">
           <div className={styles.woman}>
-            <div className={styles.womanImg}>
+            {/* Rises up from behind the card's bottom edge */}
+            <div
+              className={styles.womanImg}
+              data-reveal="rise"
+              style={{ "--reveal-delay": "250ms" } as CSSProperties}
+            >
               <Image
                 src="/images/cta-woman.png"
                 alt=""
