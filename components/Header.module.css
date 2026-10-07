@@ -16,12 +16,11 @@
   max-width: var(--content);
   margin: 0 auto;
   padding: 12px 12px 12px 24px;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  border-radius: 18px;
-  background: rgba(251, 251, 251, 0.95);
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12), 0 1px 2px rgba(15, 23, 42, 0.06);
-  -webkit-backdrop-filter: blur(14px) saturate(1.4);
-  backdrop-filter: blur(14px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: var(--radius-box);
+  /* Frosted glass: see-through, with a deep blur of whatever scrolls behind it */
+  background: rgba(251, 251, 251, 0.94);
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.6);
   pointer-events: auto;
   transition: background-color 250ms, box-shadow 250ms;
   animation: navIn 900ms var(--ease-out) both;
@@ -62,9 +61,21 @@
   }
 }
 
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .nav {
+    background: rgba(251, 251, 251, 0.62);
+    -webkit-backdrop-filter: blur(30px) saturate(1.1);
+    backdrop-filter: blur(30px) saturate(1.1);
+  }
+}
+
 .scrolled .nav {
-  background: rgba(251, 251, 251, 0.98);
-  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.16), 0 1px 2px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* Only shown inside the phone menu */
+.menuCtaItem {
+  display: none;
 }
 
 .logo {
@@ -207,7 +218,35 @@
 
   .nav {
     padding: 8px 8px 8px 16px;
-    border-radius: 16px;
+  }
+
+  /* "Get the App" moves from the bar into the menu */
+  .actions .cta {
+    display: none;
+  }
+
+  .menuCtaItem {
+    display: block;
+    padding: 14px 0 10px;
+  }
+
+  .links .menuCta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    padding: 0 20px;
+    border-radius: 100px;
+    background: var(--primary);
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: none;
+  }
+
+  .links .menuCta:hover {
+    background: #a9171c;
+    color: var(--white);
   }
 
   .logo img {
@@ -239,9 +278,10 @@
     flex-direction: column;
     gap: 0;
     padding: 4px 20px 8px;
-    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: var(--radius-box);
     background: var(--white);
-    box-shadow: 0 16px 32px rgba(15, 23, 42, 0.18);
+    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.2);
     visibility: hidden;
     opacity: 0;
     transform: translateY(-8px);

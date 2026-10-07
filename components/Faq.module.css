@@ -26,7 +26,7 @@
 .item {
   overflow: hidden;
   border: 1px solid rgba(201, 29, 34, 0.1);
-  border-radius: 6px;
+  border-radius: var(--radius-box);
   background: rgba(201, 29, 34, 0.05);
   box-shadow: inset 0 0 0 transparent;
 }

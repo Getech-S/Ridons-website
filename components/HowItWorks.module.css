@@ -78,7 +78,7 @@
   gap: 16px;
   padding: 15.8px 17.8px 15.8px 13.8px;
   border: 1px solid transparent;
-  border-radius: 18px;
+  border-radius: var(--radius-box);
   transition: background-color 250ms, border-color 250ms;
 }
 

@@ -7,7 +7,7 @@
   margin: 10px var(--card-inset) 0;
   padding: 100px clamp(20px, 6.95vw, 100px);
   overflow: hidden;
-  border-radius: 16px;
+  border-radius: var(--radius-box);
   isolation: isolate;
 }
 

@@ -15,6 +15,7 @@
   --gutter: clamp(20px, 6.95vw, 100px);
   --content: 1240px;
   --card-inset: 10px;
+  --radius-box: 16px; /* every card/box on the site: sections, navbar, FAQ items, pop-ups */
   --header-h: 96px;
 
   /* Type scale (desktop values come from Figma) */
@@ -149,7 +150,7 @@ img {
   }
 
   html.motion [data-reveal="card"][data-revealed] {
-    clip-path: inset(0 round 16px);
+    clip-path: inset(0 round var(--radius-box));
   }
 }
 

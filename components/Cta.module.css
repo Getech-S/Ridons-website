@@ -11,7 +11,7 @@
   min-height: 359px;
   margin: 0 auto;
   padding: 30px 56px;
-  border-radius: 16px;
+  border-radius: var(--radius-box);
   background-image: linear-gradient(173.05deg, #c91d22 2.66%, #0f172a 124.43%);
   isolation: isolate;
 }

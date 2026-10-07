@@ -1,7 +1,7 @@
 .footer {
   margin: 0 var(--card-inset) var(--card-inset);
   padding: 60px clamp(20px, 6.95vw, 100px) 30px;
-  border-radius: 16px;
+  border-radius: var(--radius-box);
   background: var(--secondary);
   color: var(--border);
 }

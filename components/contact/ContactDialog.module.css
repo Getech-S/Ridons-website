@@ -6,7 +6,7 @@
   padding: 0;
   overflow: hidden;
   border: 0;
-  border-radius: 20px;
+  border-radius: var(--radius-box);
   background: #ffffff;
   color: var(--secondary);
   box-shadow: 0 30px 80px rgba(15, 23, 42, 0.35);
@@ -353,7 +353,7 @@
     width: 100%;
     max-height: 92dvh;
     margin: auto 0 0;
-    border-radius: 20px 20px 0 0;
+    border-radius: var(--radius-box) var(--radius-box) 0 0;
   }
 
   .dialog[open] {

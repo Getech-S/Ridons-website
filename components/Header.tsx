@@ -49,6 +49,12 @@ export default function Header() {
               </a>
             </li>
           ))}
+          {/* Phones: the app button lives inside the menu instead of the bar */}
+          <li className={styles.menuCtaItem}>
+            <a href="#get-app" className={`${styles.menuCta} shine`} onClick={() => setOpen(false)}>
+              Get the App
+            </a>
+          </li>
         </ul>
 
         <div className={styles.actions}>
