@@ -15,7 +15,7 @@
   --gutter: clamp(20px, 6.95vw, 100px);
   --content: 1240px;
   --card-inset: 10px;
-  --radius-box: 16px; /* every card/box on the site: sections, navbar, FAQ items, pop-ups */
+  --radius-box: 16px; /* cards and boxes: sections, navbar, steps, pop-ups (FAQ rows use 6px) */
   --header-h: 96px;
 
   /* Type scale (desktop values come from Figma) */
