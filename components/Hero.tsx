@@ -19,7 +19,6 @@ export default function Hero() {
 
       <div className={styles.inner}>
         <div className={styles.content}>
-          
           <h1 className={styles.title}>
             <span className={styles.line}>Set your price.</span>
             <span className={styles.line}>
