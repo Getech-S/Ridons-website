@@ -8,7 +8,7 @@ export default function ForMotari() {
     <section className={styles.card} id="for-motari" data-reveal="card">
       <Image
         src="/images/motari.png"
-        alt=""
+        alt="A motari in a red Ridons vest on a motorbike in Kigali, using the Ridons app"
         fill
         sizes="(max-width: 1440px) 100vw, 1420px"
         className={styles.photo}

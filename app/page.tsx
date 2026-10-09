@@ -9,11 +9,13 @@ import Hero from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
 import Inclusion from "@/components/Inclusion";
 import ScrollEffects from "@/components/motion/ScrollEffects";
+import StructuredData from "@/components/seo/StructuredData";
 
 export default function Home() {
   return (
     <ContactProvider>
       <ComingSoonProvider>
+        <StructuredData />
         <ScrollEffects />
         <Header />
         <main>

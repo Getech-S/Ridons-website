@@ -59,6 +59,27 @@
   padding-top: 100px;
 }
 
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--white);
+  animation: heroUp 1s var(--ease-out) both;
+}
+
+.kicker::before {
+  content: "";
+  width: 26px;
+  height: 2px;
+  background: currentColor;
+}
+
 .title {
   font-family: var(--font-ui);
   font-size: var(--fs-h1);
